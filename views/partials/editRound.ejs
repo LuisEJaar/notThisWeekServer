@@ -1,0 +1,22 @@
+<!-- Modal Round -->
+<div class="modal fade" id="editRound" tabindex="-1" aria-labelledby="editRoundLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editRoundLabel">Edit Round</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/round/editRound/<%= round._id %>?_method=PUT" method="POST">
+          <!-- Description -->
+          <div class="form-group mb-3">
+            <label for="encounterDescription">What should have been done?</label>
+            <input type="hidden" id="type" name="type" value="textRound" />
+            <textarea type="text" class="form-control" id="encounterDescription" placeholder="Encounter Description" name="description"><%= round.description%></textarea>
+          </div>
+          <button type="submit" class="mx-auto btn btn-primary" value="Upload">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<!-- Delete Round -->
+<div class="modal fade" id="deleteRound" tabindex="-1" aria-labelledby="deleteRoundLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteRoundLabel">Warning!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Round deletion cannot be undone, you're condemning this moment to fantasy death!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <form
+          action="/round/deleteRound/<%= round._id %>?_method=DELETE"
+          method="POST"
+          class="ms-auto"
+        >
+          <button class="btn btn-danger" type="submit">Do it</button>
+        </form>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
