@@ -9,6 +9,10 @@ const flash = require("express-flash");
 const logger = require("morgan");
 const connectDB = require("./config/database");
 
+//Applying cors
+const cors = require('cors')
+app.use(cors())
+
 //Routes
 const mainRoutes = require("./routes/main");
 const postRoutes = require("./routes/posts");
@@ -68,8 +72,7 @@ app.use("/character", characterRoutes);
 //Socket.io 
 const http = require('http')
 const { Server } = require('socket.io')
-const cors = require('cors')
-app.use(cors())
+
 
 const server = http.createServer(app)
 const io = new Server(server, {
