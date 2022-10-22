@@ -20,6 +20,7 @@ exports.postLogin = (req, res, next) => {
 
   if (validationErrors.length) {
     req.flash("errors", validationErrors);
+    // return res.redirect("/login");
     return res.redirect("/login");
   }
   req.body.email = validator.normalizeEmail(req.body.email, {
