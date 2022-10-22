@@ -4,8 +4,10 @@ const UserNTW = require("../models/UserNTW");
 
 exports.getLogin = (req, res) => {
   if (req.user) {
-    return res.redirect(`/userProfile/${req.user.id}`);
+    // return res.redirect(`/userProfile/${req.user.id}`);
+    return res.redirect(`https://notthisweek.vercel.app/userProfile/${req.user.id}`);
   }
+  
   res.render("login", {
     title: "Login",
   });
@@ -20,7 +22,6 @@ exports.postLogin = (req, res, next) => {
 
   if (validationErrors.length) {
     req.flash("errors", validationErrors);
-    // return res.redirect("/login");
     return res.redirect("/login");
   }
   req.body.email = validator.normalizeEmail(req.body.email, {
