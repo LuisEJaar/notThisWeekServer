@@ -7,9 +7,10 @@ exports.getLogin = (req, res) => {
     // return res.redirect(`/userProfile/${req.user.id}`);
     return res.redirect(`https://notthisweek.vercel.app/userProfile/${req.user.id}`);
   }
-  res.render("login", {
-    title: "Login",
-  });
+  res.redirect(`https://notthisweek.vercel.app/`);
+  // res.render("login", {
+  //   title: "Login",
+  // });
 };
 
 exports.postLogin = (req, res, next) => {
@@ -54,7 +55,8 @@ exports.logout = (req, res) => {
     if (err)
       console.log("Error : Failed to destroy the session during logout.", err);
     req.user = null;
-    res.redirect("/");
+    res.redirect(`https://notthisweek.vercel.app/`);
+    // res.redirect("/");
   });
 };
 
