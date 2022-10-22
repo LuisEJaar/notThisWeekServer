@@ -22,7 +22,8 @@ exports.postLogin = (req, res, next) => {
 
   if (validationErrors.length) {
     req.flash("errors", validationErrors);
-    return res.redirect("/login");
+    // return res.redirect("/login");
+    return res.redirect(`https://notthisweek.vercel.app/`);
   }
   req.body.email = validator.normalizeEmail(req.body.email, {
     gmail_remove_dots: false,
@@ -34,7 +35,8 @@ exports.postLogin = (req, res, next) => {
     }
     if (!user) {
       req.flash("errors", info);
-      return res.redirect("/login");
+      // return res.redirect("/login");
+      return res.redirect(`https://notthisweek.vercel.app/`);
     }
     req.logIn(user, (err) => {
       if (err) {
@@ -64,7 +66,8 @@ exports.logout = (req, res) => {
 
 exports.getSignup = (req, res) => {
   if (req.user) {
-    return res.redirect(`/userProfile/${req.user.id}`);
+    // return res.redirect(`/userProfile/${req.user.id}`);
+    return res.redirect(`https://notthisweek.vercel.app/userProfile/${req.user.id}`);
   }
   res.render("signup", {
     title: "Create Account",
@@ -84,7 +87,8 @@ exports.postSignup = (req, res, next) => {
 
   if (validationErrors.length) {
     req.flash("errors", validationErrors);
-    return res.redirect("../signup");
+    // return res.redirect("../signup");
+    return res.redirect("https://notthisweek.vercel.app/signup");
   }
   req.body.email = validator.normalizeEmail(req.body.email, {
     gmail_remove_dots: false,
@@ -107,7 +111,8 @@ exports.postSignup = (req, res, next) => {
         req.flash("errors", {
           msg: "Account with that email address or username already exists.",
         });
-        return res.redirect("../signup");
+        // return res.redirect("../signup");
+        return res.redirect("https://notthisweek.vercel.app/signup");
       }
       user.save((err) => {
         if (err) {
@@ -117,7 +122,8 @@ exports.postSignup = (req, res, next) => {
           if (err) {
             return next(err);
           }
-          res.redirect(`/userProfile/${req.user.id}`);
+          // res.redirect(`/userProfile/${req.user.id}`);
+          res.redirect(`https://notthisweek.vercel.app/userProfile/${req.user.id}`);
         });
       });
     }
