@@ -7,7 +7,7 @@ exports.getLogin = (req, res) => {
     // return res.redirect(`/userProfile/${req.user.id}`);
     return res.redirect(`https://notthisweek.vercel.app/userProfile/${req.user.id}`);
   }
-  res.redirect(`https://notthisweek.vercel.app/`);
+  res.redirect(`https://notthisweek.vercel.app/login`);
   // res.render("login", {
   //   title: "Login",
   // });
@@ -23,7 +23,7 @@ exports.postLogin = (req, res, next) => {
   if (validationErrors.length) {
     req.flash("errors", validationErrors);
     // return res.redirect("/login");
-    return res.redirect(`https://notthisweek.vercel.app/`);
+    return res.redirect(`https://notthisweek.vercel.app/login`);
   }
   req.body.email = validator.normalizeEmail(req.body.email, {
     gmail_remove_dots: false,
@@ -36,7 +36,7 @@ exports.postLogin = (req, res, next) => {
     if (!user) {
       req.flash("errors", info);
       // return res.redirect("/login");
-      return res.redirect(`https://notthisweek.vercel.app/`);
+      return res.redirect(`https://notthisweek.vercel.app/login`);
     }
     req.logIn(user, (err) => {
       if (err) {
@@ -69,9 +69,10 @@ exports.getSignup = (req, res) => {
     // return res.redirect(`/userProfile/${req.user.id}`);
     return res.redirect(`https://notthisweek.vercel.app/userProfile/${req.user.id}`);
   }
-  res.render("signup", {
-    title: "Create Account",
-  });
+  return res.redirect("https://notthisweek.vercel.app/signup");
+  // res.render("signup", {
+  //   title: "Create Account",
+  // });
 };
 
 exports.postSignup = (req, res, next) => {
