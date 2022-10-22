@@ -40,6 +40,7 @@ app.use(express.json());
 //Logging
 app.use(logger("dev"));
 
+//Believe this can be deleted since I'm using formik, investigate later
 //Use forms for put / delete
 app.use(methodOverride("_method"));
 

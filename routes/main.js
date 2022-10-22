@@ -11,7 +11,7 @@ router.get("/userProfile/:id",ensureAuth, postsController.getUserProfile);
 router.get("/gameFeed", ensureAuth, postsController.getFeed);
 router.get("/characterFeed", ensureAuth, postsController.getCharacterFeed);
 router.get("/login", authController.getLogin);
-router.post("%PUBLIC_URL%/login", authController.postLogin);
+router.post("/login", authController.postLogin);
 router.get("/logout", authController.logout);
 router.get("/signup", authController.getSignup);
 router.post("/signup", authController.postSignup);
