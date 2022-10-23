@@ -6,7 +6,9 @@ module.exports = {
     } else {
       // res.redirect("/");
       console.log("redirected")
-      res.redirect(`https://notthisweek.vercel.app/`);
+      console.log(req.user)
+      // res.redirect(`https://notthisweek.vercel.app/`);
+      res.redirect(`back`);
     }
   },
   ensureGuest: function (req, res, next) {
