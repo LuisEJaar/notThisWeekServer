@@ -42,6 +42,7 @@ exports.postLogin = (req, res, next) => {
       if (err) {
         return next(err);
       }
+      console.log("user is authenticated")
       req.flash("success", { msg: "Success! You are logged in." });
       // res.redirect(req.session.returnTo || `/userProfile/${req.user.id}`);
       res.redirect(req.session.returnTo || `https://notthisweek.vercel.app/userProfile/${req.user.id}`);
