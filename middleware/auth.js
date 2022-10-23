@@ -5,6 +5,7 @@ module.exports = {
       return next();
     } else {
       // res.redirect("/");
+      console.log("redirected")
       res.redirect(`https://notthisweek.vercel.app/`);
     }
   },
