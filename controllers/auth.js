@@ -19,7 +19,6 @@ exports.postLogin = (req, res, next) => {
     validationErrors.push({ msg: "Please enter a valid email address." });
   if (validator.isEmpty(req.body.password))
     validationErrors.push({ msg: "Password cannot be blank." });
-
   if (validationErrors.length) {
     req.flash("errors", validationErrors);
     // return res.redirect("/login");
@@ -36,6 +35,7 @@ exports.postLogin = (req, res, next) => {
     if (!user) {
       req.flash("errors", info);
       // return res.redirect("/login");
+      console.log("authenticate !user")
       return res.redirect(`https://notthisweek.vercel.app/login`);
     }
     req.logIn(user, (err) => {
