@@ -6,6 +6,7 @@ const Encounter = require("../models/Encounter");
 
 module.exports = {
   getUserProfile: async (req, res) => {
+    console.log("here")
     try {
       let targetUser
       console.log(req.params.id)
