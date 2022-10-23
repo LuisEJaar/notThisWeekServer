@@ -22,6 +22,7 @@ exports.postLogin = (req, res, next) => {
   if (validationErrors.length) {
     req.flash("errors", validationErrors);
     // return res.redirect("/login");
+    console.log("errors")
     return res.redirect(`https://notthisweek.vercel.app/login`);
   }
   req.body.email = validator.normalizeEmail(req.body.email, {
